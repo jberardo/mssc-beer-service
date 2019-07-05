@@ -3,6 +3,8 @@ package guru.springframework.msscbeerservice.bootstrap;
 
 import guru.springframework.msscbeerservice.domain.Beer;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +13,8 @@ import java.math.BigDecimal;
 /**
  * Created by jt on 2019-05-17.
  */
-@Component
+@Slf4j
+ @Component
 public class BeerLoader implements CommandLineRunner {
 
     private final BeerRepository beerRepository;
@@ -46,5 +49,7 @@ public class BeerLoader implements CommandLineRunner {
                     .price(new BigDecimal("11.95"))
                     .build());
         }
+
+        log.info("Loaded " + beerRepository.count() + " beers");
     }
 }
