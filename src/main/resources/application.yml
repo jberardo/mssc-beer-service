@@ -1,2 +1,6 @@
 server:
-  port: 8084
+  port: 8880
+
+logging:
+  level:
+    guru: debug
